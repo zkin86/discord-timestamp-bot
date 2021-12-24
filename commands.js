@@ -15,7 +15,27 @@ const commands = [
         .addStringOption(option =>
             option.setName('format')
                 .setRequired(false)
-                .setDescription('Enter format: t, T, d, D, f (default), F or R')
+                .setDescription('choose: t, T, d, D, f (default), F or R')
+                .addChoices(
+                    [
+                        ['Short time', 't'],
+                        ['Long time', 'T'],
+                        ['Short date', 'd'],
+                        ['Long date', 'D'],
+                        ['Short date/time (default)', 'f'],
+                        ['Long date/time', 'F'],
+                        ['Relative time', 'R'],
+                    ])
+        )
+        .addStringOption( option =>
+            option.setName('timezone')
+                .setDescription('choose Timezone')
+                .addChoices([
+                        ['ST', "Etc/UTC"],
+                        ['Bruvs', 'Europe/London'],
+                        ['Drazu pick this!!', 'Europe/Brussels'],
+                        ['Finbois', 'Europe/Helsinki']
+                    ])
         )
 ]
     .map(command => command.toJSON());

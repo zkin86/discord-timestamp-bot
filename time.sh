@@ -1,9 +1,23 @@
 #!/bin/bash
+format=f
+while getopts ":t:f:" option; do
+   case $option in
+      t)
+         export TZ=$OPTARG;;
+      f)
+         format=$OPTARG;;
+      \?)
+          echo "Error: invalid option"
+          exit;;
+   esac
+done
+shift $((OPTIND-1))
+unset OPTIND
 date=$1
-if [ $# = "2" ]
+string="<t:$(date --date="${date}" +%s):${format}>"
+if [ $? = "0" ]
   then
-    format=$2
-  else 
-    format="f"
+    echo "${string}"
+  else
+    exit 1
 fi
-echo "<t:$(date --date="${date}" +%s):${format}>"
