@@ -51,12 +51,12 @@ function getTime(args) {
     console.log(args);
     console.log("./time.sh" + args);
     try {
-        let output = execSync("./time.sh" + args);
+        let output = execSync("./time.sh", [args]);
         console.log(output.toString());
         return output.toString() +"\n" + "\`\`\`" + output.toString() + "\`\`\`";
     } catch(e) {
         console.log(e.message)
-        return e.stderr.toString();
+        return "Invalid time string, check https://www.gnu.org/software/coreutils/manual/html_node/Date-input-formats.html for more info";
     }
 }
 
