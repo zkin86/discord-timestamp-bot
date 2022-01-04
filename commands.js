@@ -15,15 +15,15 @@ const commands = [
         .addStringOption(option =>
             option.setName('format')
                 .setRequired(false)
-                .setDescription('choose: t, T, d, D, f (default), F or R')
+                .setDescription('Choose how timestamp is displayed')
                 .addChoices(
                     [
-                        ['Short time', 't'],
-                        ['Long time', 'T'],
-                        ['Short date', 'd'],
-                        ['Long date', 'D'],
                         ['Short date/time (default)', 'f'],
                         ['Long date/time', 'F'],
+                        ['Short time, HH:MM', 't'],
+                        ['Long time, HH:MM:SS', 'T'],
+                        ['Short date', 'd'],
+                        ['Long date', 'D'],
                         ['Relative time', 'R'],
                     ])
         )
@@ -31,10 +31,31 @@ const commands = [
             option.setName('timezone')
                 .setDescription('choose Timezone')
                 .addChoices([
-                        ['ST', "Etc/UTC"],
-                        ['Bruvs', 'Europe/London'],
-                        ['Drazu pick this!!', 'Europe/Brussels'],
-                        ['Finbois', 'Europe/Helsinki']
+                        ['GMT-12', "GMT+12"],
+                        ['GMT-11', "GMT+11"],
+                        ['GMT-10', "GMT+10"],
+                        ['GMT-9', "GMT+2"],
+                        ['GMT-8', "GMT+2"],
+                        ['GMT-7', "GMT+2"],
+                        ['GMT-6', "GMT+2"],
+                        ['GMT-5', "GMT+2"],
+                        ['GMT-4', "GMT+2"],
+                        ['GMT-3', "GMT+2"],
+                        ['GMT-2', "GMT+2"],
+                        ['GMT-1', "GMT+2"],
+                        ['GMT', "GMT"],
+                        ['GMT+1', "GMT-1"],
+                        ['GMT+2', "GMT-2"],
+                        ['GMT+3', "GMT-3"],
+                        ['GMT+4', "GMT-4"],
+                        ['GMT+5', "GMT-5"],
+                        ['GMT+6', "GMT-6"],
+                        ['GMT+7', "GMT-7"],
+                        ['GMT+8', "GMT-8"],
+                        ['GMT+9', "GMT-9"],
+                        ['GMT+10', "GMT-10"],
+                        ['GMT+11', "GMT-11"],
+                        ['GMT+12', "GMT-12"],
                     ])
         )
 ]
@@ -42,7 +63,7 @@ const commands = [
 
 const rest = new REST({ version: '9' }).setToken(token);
 
-rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+rest.put(Routes.applicationCommands(clientId), { body: commands })
     .then(() => console.log('Successfully registered application commands.'))
     .catch(console.error);
 
