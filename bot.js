@@ -51,7 +51,7 @@ function getTime(args) {
     console.log(args);
     console.log("./time.sh" + args);
     try {
-        let output = execSync("./time.sh", [args]);
+        let output = execSync("./time.sh" + args);
         console.log(output.toString());
         return output.toString() +"\n" + "\`\`\`" + output.toString() + "\`\`\`";
     } catch(e) {
