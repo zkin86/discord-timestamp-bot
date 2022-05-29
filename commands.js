@@ -29,34 +29,44 @@ const commands = [
         )
         .addStringOption( option =>
             option.setName('timezone')
-                .setDescription('choose Timezone')
+                .setDescription('choose Timezone (use if you input time in relative format)')
                 .addChoices([
-                        ['GMT-12', "GMT+12"],
-                        ['GMT-11', "GMT+11"],
-                        ['GMT-10', "GMT+10"],
-                        ['GMT-9', "GMT+2"],
-                        ['GMT-8', "GMT+2"],
-                        ['GMT-7', "GMT+2"],
-                        ['GMT-6', "GMT+2"],
-                        ['GMT-5', "GMT+2"],
-                        ['GMT-4', "GMT+2"],
-                        ['GMT-3', "GMT+2"],
-                        ['GMT-2', "GMT+2"],
-                        ['GMT-1', "GMT+2"],
-                        ['GMT', "GMT"],
-                        ['GMT+1', "GMT-1"],
-                        ['GMT+2', "GMT-2"],
-                        ['GMT+3', "GMT-3"],
-                        ['GMT+4', "GMT-4"],
-                        ['GMT+5', "GMT-5"],
-                        ['GMT+6', "GMT-6"],
-                        ['GMT+7', "GMT-7"],
-                        ['GMT+8', "GMT-8"],
-                        ['GMT+9', "GMT-9"],
-                        ['GMT+10', "GMT-10"],
-                        ['GMT+11', "GMT-11"],
-                        ['GMT+12', "GMT-12"],
-                    ])
+                    ['GMT-12', "GMT+12"],
+                    ['GMT-11', "GMT+11"],
+                    ['GMT-10', "GMT+10"],
+                    ['GMT-9', "GMT+2"],
+                    ['GMT-8', "GMT+2"],
+                    ['GMT-7', "GMT+2"],
+                    ['GMT-6', "GMT+2"],
+                    ['GMT-5', "GMT+2"],
+                    ['GMT-4', "GMT+2"],
+                    ['GMT-3', "GMT+2"],
+                    ['GMT-2', "GMT+2"],
+                    ['GMT-1', "GMT+2"],
+                    ['GMT', "GMT"],
+                    ['GMT+1', "GMT-1"],
+                    ['GMT+2', "GMT-2"],
+                    ['GMT+3', "GMT-3"],
+                    ['GMT+4', "GMT-4"],
+                    ['GMT+5', "GMT-5"],
+                    ['GMT+6', "GMT-6"],
+                    ['GMT+7', "GMT-7"],
+                    ['GMT+8', "GMT-8"],
+                    ['GMT+9', "GMT-9"],
+                    ['GMT+10', "GMT-10"],
+                    ['GMT+11', "GMT-11"],
+                    ['GMT+12', "GMT-12"],
+                ])
+        )
+        .addStringOption(option =>
+            	option
+                	.setName("message")
+			.setDescription('type message to the channel')
+        )
+        .addMentionableOption(option =>
+            	option
+                	.setName("ping")
+			.setDescription('ping a role/person')
         )
 ]
     .map(command => command.toJSON());
