@@ -18,6 +18,6 @@ Bot has options for specifying timezone of the user, format of the timestamp and
 
 Bot responses with ephemeral message by default and with non-ephemeral message in a channel if message was included.
 
-<img src="./images/response_ephemeral.png" width="50%">
+<img src="./images/response_ephemeral.png" width="25%">
 
-<img src="./images/response_message_mentionable.png" width="50%">
+<img src="./images/response_message_mentionable.png" width="25%">
