@@ -2,10 +2,11 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { clientId, guildId, token } = require('./config.json');
+const { timezones } = require('./timezones.json');
 
 const commands = [
     new SlashCommandBuilder()
-        .setName('time')
+        .setName('timestamp')
         .setDescription('Replies with timestamp')
         .addStringOption(option =>
             option.setName('time')
@@ -30,33 +31,12 @@ const commands = [
         .addStringOption( option =>
             option.setName('timezone')
                 .setDescription('choose Timezone')
-                .addChoices([
-                        ['GMT-12', "GMT+12"],
-                        ['GMT-11', "GMT+11"],
-                        ['GMT-10', "GMT+10"],
-                        ['GMT-9', "GMT+2"],
-                        ['GMT-8', "GMT+2"],
-                        ['GMT-7', "GMT+2"],
-                        ['GMT-6', "GMT+2"],
-                        ['GMT-5', "GMT+2"],
-                        ['GMT-4', "GMT+2"],
-                        ['GMT-3', "GMT+2"],
-                        ['GMT-2', "GMT+2"],
-                        ['GMT-1', "GMT+2"],
-                        ['GMT', "GMT"],
-                        ['GMT+1', "GMT-1"],
-                        ['GMT+2', "GMT-2"],
-                        ['GMT+3', "GMT-3"],
-                        ['GMT+4', "GMT-4"],
-                        ['GMT+5', "GMT-5"],
-                        ['GMT+6', "GMT-6"],
-                        ['GMT+7', "GMT-7"],
-                        ['GMT+8', "GMT-8"],
-                        ['GMT+9', "GMT-9"],
-                        ['GMT+10', "GMT-10"],
-                        ['GMT+11', "GMT-11"],
-                        ['GMT+12', "GMT-12"],
-                    ])
+                .addChoices(timezones)
+        )
+        .addStringOption(option =>
+            	option
+                	.setName("message")
+			.setDescription('type a message to the channel')
         )
 ]
     .map(command => command.toJSON());
