@@ -14,10 +14,10 @@ For more information, check [date input formats](https://www.gnu.org/software/co
 
 Bot has options for specifying timezone of the user, format of the timestamp and message for the channel
 
-<img alt="format options" src="./images/format.png" width="200px">
+<img alt="format options" src="./images/format.png" width="50%">
 
 Bot responses with ephemeral message by default and with non-ephemeral message in a channel if message was included.
 
-<img src="./images/response_ephemeral.png" width="200px">
+<img src="./images/response_ephemeral.png" width="50%">
 
-<img src="./images/response_message_mentionable.png" width="200px">
+<img src="./images/response_message_mentionable.png" width="50%">
